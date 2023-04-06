@@ -7,7 +7,7 @@ import helmet from 'helmet';
 import logger from 'morgan';
 import { dirname } from 'path';
 import { fileURLToPath, URL } from 'url';
-import WebSocketServer from 'ws';
+import { WebSocketServer } from 'ws';
 
 import { start } from './server/server.js';
 import indexRoutes from './server/routes/index.js';
