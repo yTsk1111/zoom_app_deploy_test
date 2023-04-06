@@ -2,15 +2,24 @@ extends layout
 
 block content
     h1=title
+    p(id="counter") 挙手数：0
+    #container.col
+    button(id="kyosyu" ,class="btn btn-outline-primary") 挙手
+    button(id="reset_kyosyu",  class="btn btn-outline-danger") 挙手数リセット
+    #container.col
+    img(src='/img/kyosyu.png', width='120', height='130', id='kyosyu_image')
+
     if isZoom
-        p Welcome to your Zoom App
+        p under construction...
+
     else
         p You're viewing your Zoom App through the browser.&nbsp;
             a(href=`/install`) Click Here
             | &nbsp;to install your app in Zoom.
 
 append scripts
+    script(src='/js/vendor/websocket.js')
+
     if isZoom
         script(type="module" src='/js/bundle.mjs')
         script(nomodule src='/js/bundle.js')
-

@@ -17,11 +17,11 @@ router.get('/', async (req, res, next) => {
         const header = req.header(contextHeader);
 
         const isZoom = header && getAppContext(header);
-        const name = isZoom ? 'Zoom' : 'Browser';
+        // const name = isZoom ? 'Zoom' : 'Browser';
 
         return res.render('index', {
             isZoom,
-            title: `Hello ${name}`,
+            title: 'SUAI zoom sample app',
         });
     } catch (e) {
         next(handleError(e));

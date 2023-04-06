@@ -9,8 +9,7 @@ import zoomSdk from '@zoom/appssdk';
                 'shareApp',
             ],
         });
-
-        console.debug('Zoom JS SDK Configuration', configResponse);
+        console.log(configResponse);
     } catch (e) {
         console.error(e);
     }
