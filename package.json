@@ -8,7 +8,7 @@
     "prestart": "npm run build",
     "start": "node app.js",
     "dev": "node scripts/dev.js",
-    "build": "rollup -c",
+    "build": "npx rollup -c",
     "prepare": "npx husky install",
     "postprepare": "node scripts/gen-secrets.cjs"
   },
