@@ -5,7 +5,6 @@
   "exports": "./server",
   "private": true,
   "scripts": {
-    "prestart": "npm run build",
     "start": "node app.js",
     "dev": "node scripts/dev.js",
     "build": "npx rollup -c",
