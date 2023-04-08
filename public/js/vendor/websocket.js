@@ -1,5 +1,5 @@
 console.log('送信ボタンを押して下さい');
-var sock = new WebSocket('ws://localhost:3008');
+var sock = new WebSocket('ws://suai-zoom-sample-app.onrender.com:3009');
 
 sock.addEventListener('open', function (e) {
     // 接続

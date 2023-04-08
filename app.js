@@ -77,7 +77,10 @@ const headers = {
             styleSrc: ["'self'", bootstrap],
             scriptSrc: ["'self'", 'https://appssdk.zoom.us/sdk.min.js'],
             imgSrc: ["'self'", `https://${redirectHost}`],
-            'connect-src': ["'self'", 'ws://localhost:3008'],
+            'connect-src': [
+                "'self'",
+                'ws://suai-zoom-sample-app.onrender.com:3009',
+            ],
             'base-uri': 'self',
             // 'form-action': 'self',
         },
@@ -115,7 +118,7 @@ app.use((err, req, res, next) => {
     res.render('error');
 });
 
-const wss = new WebSocketServer({ port: 3008 });
+const wss = new WebSocketServer({ port: 3009 });
 
 let count = 0;
 let CLIENTS = []; // クライアントのリスト
