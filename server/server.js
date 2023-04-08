@@ -16,10 +16,12 @@ export async function start(app, port) {
     // let the user know when we're serving
     server.on('listening', () => {
         const addr = server.address();
+        console.log(addr);
         const bind =
             typeof addr === 'string'
                 ? `pipe ${addr}`
                 : `http://localhost:${addr.port}`;
+        console.log(`Listening on ${bind}`);
         dbg(`Listening on ${bind}`);
     });
 
