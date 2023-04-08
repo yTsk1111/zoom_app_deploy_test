@@ -162,6 +162,7 @@ wss.on('connection', function connection(ws) {
 app.get('*', (req, res) => res.redirect('/'));
 
 // start serving
+console.log('!!!start serving!!!');
 start(app, port).catch(async (e) => {
     console.error(e);
     process.exit(1);
