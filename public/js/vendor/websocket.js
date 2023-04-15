@@ -1,23 +1,23 @@
 console.log('送信ボタンを押して下さい');
-var sock = new WebSocket('wss://suai-zoom-sample-app.onrender.com');
+import { io } from 'https://cdn.socket.io/4.4.1/socket.io.esm.min.js';
+let sock = io();
 
 sock.addEventListener('open', function (e) {
     // 接続
     console.log('Socket 接続成功');
 });
 
-sock.addEventListener('message', function (e) {
+sock.on('message', function (data) {
     // サーバーからデータを受け取る
-    console.log(e.data);
-    let count = e.data;
-    elm = document.getElementById('counter');
-    updated = '挙手数：' + count;
-    elm.textContent = updated;
+    let count = data;
+    let elm = document.getElementById('counter');
+    let updated = '挙手数：' + count;
     if (count == 0) {
         document.getElementById('kyosyu_image').style.display = 'none';
     } else if (count > 0) {
         document.getElementById('kyosyu_image').style.display = 'inline';
     }
+    elm.textContent = updated;
 });
 
 document.addEventListener('DOMContentLoaded', function (e) {

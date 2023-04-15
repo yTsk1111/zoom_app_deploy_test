@@ -7,7 +7,7 @@ import helmet from 'helmet';
 import logger from 'morgan';
 import { dirname } from 'path';
 import { fileURLToPath, URL } from 'url';
-import { WebSocketServer } from 'ws';
+// import { WebSocketServer } from 'ws';
 
 import { start } from './server/server.js';
 import indexRoutes from './server/routes/index.js';
@@ -79,7 +79,7 @@ const headers = {
             imgSrc: ["'self'", `https://${redirectHost}`],
             'connect-src': [
                 "'self'",
-                'ws://suai-zoom-sample-app.onrender.com:3009',
+                // 'ws://suai-zoom-sample-app.onrender.com:3009',
             ],
             'base-uri': 'self',
             // 'form-action': 'self',
@@ -118,48 +118,48 @@ app.use((err, req, res, next) => {
     res.render('error');
 });
 
-const wss = new WebSocketServer({ port: 3009 });
+// const wss = new WebSocketServer({ port: 3009 });
 
-let count = 0;
-let CLIENTS = []; // クライアントのリスト
-let id;
-wss.on('connection', function connection(ws) {
-    ws.on('error', console.error);
+// let count = 0;
+// let CLIENTS = []; // クライアントのリスト
+// let id;
+// wss.on('connection', function connection(ws) {
+//     ws.on('error', console.error);
 
-    console.log('新しいクライアント： ' + id);
-    id = Math.floor(Math.random() * 999999999);
-    const client = { id: id, ws: ws };
-    CLIENTS.push(client); //クライアントを登録
-    ws.send(count); // 新規クライアントに現状のカウント情報を送信
+//     console.log('新しいクライアント： ' + id);
+//     id = Math.floor(Math.random() * 999999999);
+//     const client = { id: id, ws: ws };
+//     CLIENTS.push(client); //クライアントを登録
+//     ws.send(count); // 新規クライアントに現状のカウント情報を送信
 
-    ws.on('message', function message(data) {
-        console.log('received: %s', data);
-        if (data == 'kyosyu') {
-            count++;
-        } else if (data == 'reset') {
-            count = 0;
-        } else {
-            console.log('received undefined message.');
-        }
-        ws.send(count); // 自身にカウントを送信
-        for (let j = 0; j < CLIENTS.length; j++) {
-            //他の接続しているクライアントにカウントを一斉送信
-            const saved_ws = CLIENTS[j]['ws'];
-            if (ws !== saved_ws) {
-                saved_ws.send(count);
-            }
-        }
-    });
-    ws.on('close', function () {
-        console.log('ユーザー：' + id + ' がブラウザを閉じました');
-        for (let j = 0; j < CLIENTS.length; j++) {
-            const saved_id = CLIENTS[j]['id'];
-            if (id !== saved_id) {
-                delete CLIENTS[id];
-            }
-        }
-    });
-});
+//     ws.on('message', function message(data) {
+//         console.log('received: %s', data);
+//         if (data == 'kyosyu') {
+//             count++;
+//         } else if (data == 'reset') {
+//             count = 0;
+//         } else {
+//             console.log('received undefined message.');
+//         }
+//         ws.send(count); // 自身にカウントを送信
+//         for (let j = 0; j < CLIENTS.length; j++) {
+//             //他の接続しているクライアントにカウントを一斉送信
+//             const saved_ws = CLIENTS[j]['ws'];
+//             if (ws !== saved_ws) {
+//                 saved_ws.send(count);
+//             }
+//         }
+//     });
+//     ws.on('close', function () {
+//         console.log('ユーザー：' + id + ' がブラウザを閉じました');
+//         for (let j = 0; j < CLIENTS.length; j++) {
+//             const saved_id = CLIENTS[j]['id'];
+//             if (id !== saved_id) {
+//                 delete CLIENTS[id];
+//             }
+//         }
+//     });
+// });
 
 // redirect users to the home page if they get a 404 route
 app.get('*', (req, res) => res.redirect('/'));
