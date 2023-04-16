@@ -18,7 +18,7 @@ block content
             | &nbsp;to install your app in Zoom.
 
 append scripts
-    script(src='/js/vendor/websocket.js')
+    script(src='/js/vendor/websocket.js', type="module")
 
     if isZoom
         script(type="module" src='/js/bundle.mjs')
