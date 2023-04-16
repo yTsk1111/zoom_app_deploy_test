@@ -75,7 +75,11 @@ const headers = {
         directives: {
             'default-src': 'self',
             styleSrc: ["'self'", bootstrap],
-            scriptSrc: ["'self'", 'https://appssdk.zoom.us/sdk.min.js'],
+            scriptSrc: [
+                "'self'",
+                'https://appssdk.zoom.us/sdk.min.js',
+                'https://cdn.socket.io/4.4.1/socket.io.esm.min.js',
+            ],
             imgSrc: ["'self'", `https://${redirectHost}`],
             'connect-src': [
                 "'self'",
