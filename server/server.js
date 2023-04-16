@@ -1,6 +1,7 @@
 import http from 'http';
 import debug from 'debug';
 import { appName } from '../config.js';
+import { Server } from 'socket.io';
 
 const dbg = debug(`${appName}:http`);
 
@@ -44,7 +45,8 @@ export async function start(app, port) {
     let count = 0;
     let CLIENTS = []; // クライアントのリスト
 
-    const io = require('socket.io')(server);
+    const io = new Server(server);
+
     io.on('connection', (socket) => {
         console.log('socket 接続成功');
         const id = Math.floor(Math.random() * 999999999);
