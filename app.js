@@ -37,7 +37,7 @@ app.use('/public', express.static(__dirname + '/public'));
 
 // HTTP
 app.set('port', port);
-
+app.set('trust proxy', true);
 // log Axios requests and responses
 const logFunc = (r) => {
     if (process.env.NODE_ENV !== 'production') {
