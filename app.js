@@ -77,11 +77,7 @@ const headers = {
             styleSrc: ["'self'", bootstrap],
             scriptSrc: ["'self'", 'https://appssdk.zoom.us/sdk.min.js'],
             imgSrc: ["'self'", `https://${redirectHost}`],
-            'connect-src': [
-                "'self'",
-                // 'ws://suai-zoom-sample-app.onrender.com:3009',
-                'wss://65fc-217-178-16-126.ngrok-free.app',
-            ],
+            'connect-src': ["'self'", 'wss://deploy-test-ze7k.onrender.com '],
             'base-uri': 'self',
             // 'form-action': 'self',
         },

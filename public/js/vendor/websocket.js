@@ -1,5 +1,5 @@
 console.log('送信ボタンを押して下さい');
-let sock = new WebSocket('wss://65fc-217-178-16-126.ngrok-free.app');
+let sock = new WebSocket('wss://deploy-test-ze7k.onrender.com');
 
 sock.addEventListener('open', function (e) {
     // 接続
