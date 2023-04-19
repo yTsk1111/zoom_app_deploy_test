@@ -36,7 +36,6 @@
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-terser": "^7.0.2",
-    "socket.io": "^4.6.1",
     "websocket": "^1.0.34",
     "ws": "^8.13.0"
   },

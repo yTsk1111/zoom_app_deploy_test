@@ -1,15 +1,14 @@
 console.log('送信ボタンを押して下さい');
-import { io } from 'https://cdn.socket.io/4.4.1/socket.io.esm.min.js';
-let sock = io();
+let sock = new WebSocket('wss://65fc-217-178-16-126.ngrok-free.app');
 
 sock.addEventListener('open', function (e) {
     // 接続
     console.log('Socket 接続成功');
 });
 
-sock.on('message', function (data) {
+sock.addEventListener('message', function (e) {
     // サーバーからデータを受け取る
-    let count = data;
+    let count = e.data;
     let elm = document.getElementById('counter');
     let updated = '挙手数：' + count;
     if (count == 0) {

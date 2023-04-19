@@ -75,15 +75,12 @@ const headers = {
         directives: {
             'default-src': 'self',
             styleSrc: ["'self'", bootstrap],
-            scriptSrc: [
-                "'self'",
-                'https://appssdk.zoom.us/sdk.min.js',
-                'https://cdn.socket.io/4.4.1/socket.io.esm.min.js',
-            ],
+            scriptSrc: ["'self'", 'https://appssdk.zoom.us/sdk.min.js'],
             imgSrc: ["'self'", `https://${redirectHost}`],
             'connect-src': [
                 "'self'",
                 // 'ws://suai-zoom-sample-app.onrender.com:3009',
+                'wss://65fc-217-178-16-126.ngrok-free.app',
             ],
             'base-uri': 'self',
             // 'form-action': 'self',
